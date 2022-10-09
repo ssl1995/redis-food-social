@@ -5,6 +5,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>ms-registry</module>
+        <module>ms-gateway</module>
+        <module>ms-dinners</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
