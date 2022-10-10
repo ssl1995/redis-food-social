@@ -7,6 +7,7 @@
         <module>ms-registry</module>
         <module>ms-gateway</module>
         <module>ms-dinners</module>
+        <module>commons</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
