@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: ms-registry
-  swagger:
-    enabled: false
+#  swagger:
+#    enabled: false
 eureka:
   client:
     register-with-eureka: false

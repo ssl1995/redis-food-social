@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: ms-gateway
-  swagger:
-    enabled: false
+#  swagger:
+#    enabled: false
   cloud:
     gateway:
       discovery:

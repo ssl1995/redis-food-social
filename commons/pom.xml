@@ -35,11 +35,11 @@
 <!--            <artifactId>guava</artifactId>-->
 <!--        </dependency>-->
         <!-- swagger -->
-        <dependency>
-            <groupId>com.battcn</groupId>
-            <artifactId>swagger-spring-boot-starter</artifactId>
-            <version>${swagger-starter-version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.battcn</groupId>-->
+<!--            <artifactId>swagger-spring-boot-starter</artifactId>-->
+<!--            <version>${swagger-starter-version}</version>-->
+<!--        </dependency>-->
         <!-- security -->
         <dependency>
             <groupId>org.springframework.security</groupId>

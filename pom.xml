@@ -8,6 +8,7 @@
         <module>ms-gateway</module>
         <module>ms-dinners</module>
         <module>commons</module>
+        <module>ms-oauth2-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -74,11 +75,11 @@
             <version>${mybatis-starter-version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.battcn</groupId>
-            <artifactId>swagger-spring-boot-starter</artifactId>
-            <version>${swagger-starter-version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.battcn</groupId>-->
+<!--            <artifactId>swagger-spring-boot-starter</artifactId>-->
+<!--            <version>${swagger-starter-version}</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>mysql</groupId>

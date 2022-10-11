@@ -1,7 +1,7 @@
 package com.note.ssl.commons.model.pojo;
 
 
-import com.imooc.commons.model.base.BaseModel;
+import com.note.ssl.commons.model.base.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -4,8 +4,8 @@ server:
 spring:
   application:
     name: ms-dinners
-  swagger:
-    enabled: false
+#  swagger:
+#    enabled: false
 
 eureka:
   # UP (1) - 192.168.0.193:ms-gateway:80 新版默认就已经提供ip和端口啦
