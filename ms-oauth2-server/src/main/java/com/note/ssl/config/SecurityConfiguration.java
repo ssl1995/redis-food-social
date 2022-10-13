@@ -16,21 +16,20 @@ import javax.annotation.Resource;
 /**
  * @Author: SongShengLin
  * @Date: 2022/10/11 15:30
- * @Describe:
+ * @Describe: 安全配置类
  */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     /**
-     * 需要Redis工厂
+     * 需要Redis工
      */
     @Resource
     private RedisConnectionFactory redisConnectionFactory;
 
     /**
      * 初试化RedisTokenStore，存储Redis
-     *
-     * @return
+     * 将Token存储到Redis中
      */
     @Bean
     public RedisTokenStore redisTokenStore() {
@@ -62,7 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      * 注入认证管理对象
      */
     @Override
-    @Bean
+    @Bean//  注入成一个Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
@@ -72,14 +71,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()// 除了get请求都要验证
+        http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/oauth/**", "/actuator/**").permitAll()
+                .antMatchers("/oauth/**", "/actuator/**")
+                .permitAll()
                 .and()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated();
     }
-
-
 }

@@ -6,6 +6,8 @@ import com.note.ssl.commons.utils.AssertUtil;
 import com.note.ssl.mapper.DinersMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -16,7 +18,7 @@ import java.util.Objects;
 /**
  * @Author: SongShengLin
  * @Date: 2022/10/11 16:27
- * @Describe:
+ * @Describe: 登录校验
  */
 @Service
 public class UserService implements UserDetailsService {
@@ -36,8 +38,10 @@ public class UserService implements UserDetailsService {
         if (Objects.isNull(diners)) {
             throw new UsernameNotFoundException("用户名或者密码错误，请重新输入！");
         }
-        SignInIdentity signInIdentity = new SignInIdentity();
-        BeanUtils.copyProperties(diners, signInIdentity);
-        return signInIdentity;
+        return new User(username, diners.getPassword(),
+                AuthorityUtils.commaSeparatedStringToAuthorityList(diners.getRoles()));
+//        SignInIdentity signInIdentity = new SignInIdentity();
+//        BeanUtils.copyProperties(diners, signInIdentity);
+//        return signInIdentity;
     }
 }
