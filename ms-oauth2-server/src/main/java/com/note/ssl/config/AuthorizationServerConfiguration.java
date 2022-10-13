@@ -78,15 +78,15 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .userDetailsService(userService)
                 // token存储的方式
                 .tokenStore(redisTokenStore)
-//                .tokenEnhancer((accessToken, authentication) -> {// 令牌登录增强
-//                    SignInIdentity signInIdentity = (SignInIdentity) authentication.getPrincipal();
-//                    Map<String, Object> map = new LinkedHashMap<>();
-//                    map.put("nickname", signInIdentity.getNickname());
-//                    map.put("avatarUrl", signInIdentity.getAvatarUrl());
-//                    DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) accessToken;
-//                    token.setAdditionalInformation(map);
-//                    return token;
-//                })
+                .tokenEnhancer((accessToken, authentication) -> {// 令牌登录增强
+                    SignInIdentity signInIdentity = (SignInIdentity) authentication.getPrincipal();
+                    Map<String, Object> map = new LinkedHashMap<>();
+                    map.put("nickname", signInIdentity.getNickname());
+                    map.put("avatarUrl", signInIdentity.getAvatarUrl());
+                    DefaultOAuth2AccessToken token = (DefaultOAuth2AccessToken) accessToken;
+                    token.setAdditionalInformation(map);
+                    return token;
+                })
         ;
     }
 }

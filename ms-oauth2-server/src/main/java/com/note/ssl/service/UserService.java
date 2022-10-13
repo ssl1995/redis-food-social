@@ -38,10 +38,10 @@ public class UserService implements UserDetailsService {
         if (Objects.isNull(diners)) {
             throw new UsernameNotFoundException("用户名或者密码错误，请重新输入！");
         }
-        return new User(username, diners.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList(diners.getRoles()));
-//        SignInIdentity signInIdentity = new SignInIdentity();
-//        BeanUtils.copyProperties(diners, signInIdentity);
-//        return signInIdentity;
+//        return new User(username, diners.getPassword(),
+//                AuthorityUtils.commaSeparatedStringToAuthorityList(diners.getRoles()));
+        SignInIdentity signInIdentity = new SignInIdentity();
+        BeanUtils.copyProperties(diners, signInIdentity);
+        return signInIdentity;
     }
 }
