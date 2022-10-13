@@ -31,5 +31,20 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.note.ssl</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- 自定义的元数据依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+
     </dependencies>
 </project>
