@@ -4,15 +4,43 @@ server:
 spring:
   application:
     name: ms-dinners
-#  swagger:
-#    enabled: false
+  # 数据库
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-2zep5730lmk5s5dy37o.mysql.rds.aliyuncs.com:3306/imooc-redis?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: Ssl@199502
+  # Redis
+  redis:
+    port: 6379
+    host: 101.201.154.144
+    timeout: 3000
+    database: 1
+    password: Ssl@134679
 
+# oauth2 客户端信息
+oauth2:
+  client:
+    client-id: appId
+    secret: 123456
+    grant_type: password
+    scope: api
+
+# oauth2 服务地址
+service:
+  name:
+    ms-oauth-server: http://ms-oauth2-server/
+
+# 配置 Eureka Server 注册中心
 eureka:
-  # UP (1) - 192.168.0.193:ms-gateway:80 新版默认就已经提供ip和端口啦
-#  instance:
-#    prefer-ip-address: true
-#    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/
+
+logging:
+  pattern:
+    console: '%d{HH:mm:ss} [%thread] %-5level %logger{50} - %msg%n'
 

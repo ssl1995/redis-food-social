@@ -24,6 +24,7 @@ spring:
 
 # Oauth2
 client:
+  # 提供方
   oauth2:
     client-id: appId # 客户端标识 ID
     secret: 123456 # 客户端安全码

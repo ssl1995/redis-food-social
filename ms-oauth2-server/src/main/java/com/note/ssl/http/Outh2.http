@@ -1,7 +1,14 @@
-# 登录权限校验
+### 登录权限校验1
 POST http://localhost:8082/oauth/token
 Authorization: Basic appId 123456
 Content-Type: application/x-www-form-urlencoded
 
 username=test&password=123456&grant_type=password&scope=api
+
+### 登录权限校验2 增强返回值
+POST http://localhost:8082/oauth/token
+Authorization: Basic appId 123456
+Content-Type: application/x-www-form-urlencoded
+
+username=test2&password=123456&grant_type=password&scope=api
 
