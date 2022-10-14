@@ -1,2 +1,0 @@
-### 路由：验证登录
-GET http://localhost/diners/signin?username=test&password=123456

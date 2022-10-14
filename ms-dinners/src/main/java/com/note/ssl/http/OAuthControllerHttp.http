@@ -1,2 +1,0 @@
-### 验证登录
-GET http://localhost:8081/signin?username=test&password=123456

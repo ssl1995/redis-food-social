@@ -29,8 +29,8 @@ public class DinnerController {
      * @return
      */
     @GetMapping("signin")
-    public ResultInfo signIn(String username, String password) {
-        return dinnerService.signIn(username, password, request.getServletPath());
+    public ResultInfo signIn(String account, String password) {
+        return dinnerService.signIn(account, password, request.getServletPath());
     }
 
 

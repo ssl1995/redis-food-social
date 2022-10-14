@@ -12,3 +12,5 @@ Content-Type: application/x-www-form-urlencoded
 
 username=test2&password=123456&grant_type=password&scope=api
 
+### 获取用户信息 user/me
+GET http://localhost:8082/user/me?access_token=b10793e7-57c4-4d34-af5c-38fd86585a76

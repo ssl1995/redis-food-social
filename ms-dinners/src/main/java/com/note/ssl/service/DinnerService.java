@@ -41,7 +41,7 @@ public class DinnerService {
     public ResultInfo signIn(String account, String password, String path) {
         // 参数校验
         AssertUtil.isNotEmpty(account, "请输入登录账号！");
-        AssertUtil.isNotEmpty(password, "请输入登录账号！");
+        AssertUtil.isNotEmpty(password, "请输入登录密码！");
 
         // 请求头和请求体
         HttpHeaders headers = new HttpHeaders();
@@ -54,6 +54,7 @@ public class DinnerService {
         HttpEntity<MultiValueMap<String, Object>> entity = new HttpEntity<>(body, headers);
         // 发送Http请求
         restTemplate.getInterceptors().add(new BasicAuthenticationInterceptor(oAuth2ClientConfiguration.getClientId(), oAuth2ClientConfiguration.getSecret()));
+        // 网关->dinner服务>权限认证服务
         ResponseEntity<ResultInfo> result = restTemplate.postForEntity(oauthServerName + "oauth/token", entity, ResultInfo.class);
 
         AssertUtil.isTrue(result.getStatusCode() != HttpStatus.OK, "登录失败！");
