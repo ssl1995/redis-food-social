@@ -31,6 +31,11 @@ service:
   name:
     ms-oauth-server: http://ms-oauth2-server/
 
+# Mybatis
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true # 开启驼峰映射
+
 # 配置 Eureka Server 注册中心
 eureka:
   instance:

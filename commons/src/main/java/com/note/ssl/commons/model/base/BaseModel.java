@@ -16,6 +16,7 @@ public class BaseModel implements Serializable {
     private Integer id;
     private Date createDate;
     private Date updateDate;
+    // 需要开启驼峰
     private int isValid;
 
 }

@@ -33,6 +33,9 @@ secure:
       - /actuator/**
       - /auth/oauth/**
       - /diners/signin
+      - /diners/send
+      - /diners/checkPhone
+      - /diners/register
 
 
 eureka:
