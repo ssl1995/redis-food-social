@@ -18,6 +18,9 @@ import reactor.core.publisher.Mono;
 import javax.annotation.Resource;
 import java.nio.charset.Charset;
 
+/**
+ * 网关：统一异常处理
+ */
 @Component
 public class HandleException {
 

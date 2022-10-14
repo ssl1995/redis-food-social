@@ -25,6 +25,9 @@ import reactor.core.publisher.Mono;
 @Component
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
+    /**
+     * 白名单配置
+     */
     @Autowired
     private IgnoreUrlsConfig ignoreUrlsConfig;
 
@@ -34,6 +37,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
     @Autowired
     private HandleException handleException;
 
+    /**
+     * 身份校验处理，除了白名单配置方形，其余都过滤掉
+     */
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         // spring带的URL路径检查工具
@@ -51,10 +57,12 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
         if (flag) {
             return chain.filter(exchange);
         }
+        // 如果没有匹配上白名单，就校验access_token
         String accessToken = exchange.getRequest().getQueryParams().getFirst("access_token");
         if (StringUtils.isBlank(accessToken)) {
             return handleException.writeError(exchange, "请登录！");
         }
+        // 发送远程请求，判断token是否有效
         String checkTokenUrl = "http://ms-oauth2-server/oauth/check_token?token=".concat(accessToken);
         try {
             ResponseEntity<String> entity = restTemplate.getForEntity(checkTokenUrl, String.class);
@@ -72,8 +80,6 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     /**
      * 网关过滤器的排序，数字越小优先级越高
-     *
-     * @return
      */
     @Override
     public int getOrder() {

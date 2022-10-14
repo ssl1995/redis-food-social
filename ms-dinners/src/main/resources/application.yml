@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: ms-dinners
+    name: ms-diners
   # 数据库
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
