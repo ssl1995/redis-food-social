@@ -9,6 +9,7 @@
         <module>ms-dinners</module>
         <module>commons</module>
         <module>ms-oauth2-server</module>
+        <module>ms-seckill</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -97,6 +98,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
         </dependency>
 
 

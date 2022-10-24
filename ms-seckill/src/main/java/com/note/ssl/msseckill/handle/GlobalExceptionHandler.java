@@ -1,4 +1,4 @@
-package com.note.ssl.exception;
+package com.note.ssl.msseckill.handle;
 
 
 import com.note.ssl.commons.exception.ParameterException;
